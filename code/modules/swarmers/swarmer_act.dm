@@ -94,6 +94,10 @@
 			to_chat(S, "<span class='warning'>Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting.</span>")
 			S.target = null
 			return FALSE
+		else if(istype(A, /area/maintenance/disposal/incinerator))
+			to_chat(S, "<span class='warning'>There may be dangerous gasses here. Aborting.</span>")
+			S.target = null
+			return FALSE
 	S.dis_integrate(src)
 	return TRUE
 
@@ -175,6 +179,10 @@
 			to_chat(S, "<span class='warning'>Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting.</span>")
 			S.target = null
 			return TRUE
+		else if(istype(A, /area/maintenance/disposal/incinerator))
+			to_chat(S, "<span class='warning'>There may be dangerous gasses here. Aborting.</span>")
+			S.target = null
+			return FALSE
 	return ..()
 
 /obj/structure/window/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
@@ -189,6 +197,10 @@
 			to_chat(actor, "<span class='warning'>Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting.</span>")
 			actor.target = null
 			return TRUE
+		else if(istype(adj_area, /area/maintenance/disposal/incinerator))
+			to_chat(S, "<span class='warning'>There may be dangerous gasses here. Aborting.</span>")
+			S.target = null
+			return FALSE
 	return ..()
 
 /obj/item/stack/cable_coil/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)//Wiring would be too effective as a resource
